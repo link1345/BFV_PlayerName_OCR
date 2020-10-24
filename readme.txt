@@ -25,4 +25,5 @@ https://github.com/UB-Mannheim/tesseract/wiki に行くと思うので、
 
 
  # License
-MIT License
+English : This software is released under the MIT License, see LICENSE.  
+日本語 : このソフトウェアは、MITライセンスの下でリリースされています。ライセンスを参照してください。  
