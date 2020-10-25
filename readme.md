@@ -4,9 +4,11 @@
 ## python & pip
 python vesion 3.8.6推奨
 
+```
 winget install Python.Python
 py -m pip install --upgrade pip
 py -m pip install Image pyocr opencv-python numpy pywinauto PyQt5
+```
 
 ## tesseract
 https://qiita.com/henjiganai/items/7a5e871f652b32b41a18
