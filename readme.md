@@ -72,7 +72,7 @@ hoge2
 ```
 
 ## クラン名別
-blacklist_clan.csvにおいて、クラン別のヒットも行えます。ゲーム内表示では「[testclan1]testuser」とある場合、下記のblacklist_clan.csvにヒットするため、ツール内の「Black User」に表示されます。
+blacklist_clan.csvにおいて、クラン別のヒットも行えます。ゲーム内表示では「[hogeclan1]testuser」とある場合、下記のblacklist_clan.csvにヒットするため、ツール内の「Black User」に表示されます。
 ```
 hogeclan1
 hogeclan2
