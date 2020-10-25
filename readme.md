@@ -2,7 +2,6 @@
 BFVと呼ばれるゲームにおいて、サーバに参加しているユーザ名を取得するツールです。
 名前は、OCRで取得しています。
 
-
 # install 
 
 ## python & pip
@@ -31,11 +30,19 @@ https://github.com/UB-Mannheim/tesseract/wiki に行くと思うので、
 今回は英語のみ入れておく。
 
 
+# 使い方
+![image1](image1.png)
+
+## 1.ソフト起動
+run.pyを起動させる。
+pythonをインストールした段階で、GUI上でrun.pyをクリックするだけで、使用できるようになっているはずです。
+
+## 2.キャプチャ先ソフトを選択
+ソフト上部に「対象ソフト:」という項目があるので、「Battlefield V」
+
  # License
 English : This software is released under the MIT License, see LICENSE.  
 日本語 : このソフトウェアは、MITライセンスの下でリリースされています。ライセンスを参照してください。  
 
-
-# 使い方
 
 
