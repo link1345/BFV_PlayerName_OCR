@@ -138,9 +138,9 @@ class image_scan():
 		print(" **********************")
 
 
-		whitelist = np.loadtxt('whitelist.csv', delimiter=',', dtype='str')
-		blacklist = np.loadtxt('blacklist.csv', delimiter=',', dtype='str')
-		blacklist_clan = np.loadtxt('blacklist_clan.csv', delimiter=',', dtype='str')
+		whitelist = np.loadtxt('whitelist.csv', ndmin=1, delimiter=',', dtype='str')
+		blacklist = np.loadtxt('blacklist.csv', ndmin=1, delimiter=',', dtype='str')
+		blacklist_clan = np.loadtxt('blacklist_clan.csv', ndmin=1, delimiter=',', dtype='str')
 
 		#print(len(whitelist))
 
@@ -154,9 +154,10 @@ class image_scan():
 			for user in playerlist :
 				out_hit = False
 				safe_hit = False
-				for b_clan in blacklist_clan :
-					user_clan = re.search(r'([0-9a-zA-Z]{1,6}]|[0-9a-zA-Z]{1,6}}|[0-9a-zA-Z]{1,6}\|)', user)
-					#print(user_clan)
+
+				def blacklist_put(b_clan,user):
+					out_hit = False
+					user_clan = re.search(r'([\|\]\}\[\{0-9a-zA-Z]{1,6}]|[\|\]\}\[\{0-9a-zA-Z]{1,6}}|[\|\]\}\[\{0-9a-zA-Z]{1,6}\|)', user)
 					
 					if user_clan != None :
 						c_user = user_clan.group()
@@ -169,6 +170,12 @@ class image_scan():
 						if  r >= self.matchNum :
 							out_hit = True
 							print("clan hit")
+						return out_hit
+
+				for b_clan in blacklist_clan :
+					out_hit = blacklist_put(b_clan, user)
+
+
 
 				for b_user in blacklist :
 					#print( b_user + "  " + user )
@@ -177,6 +184,7 @@ class image_scan():
 					if r >= self.matchNum :
 						out_hit = True
 						break
+				
 				for w_user in whitelist :
 					r =  SequenceMatcher(None, w_user, user).ratio()
 					if r >= self.matchNum :
