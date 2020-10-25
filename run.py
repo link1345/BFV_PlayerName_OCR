@@ -7,6 +7,7 @@ from PyQt5.QtGui import *
 from pywinauto import application , findwindows, win32_element_info
 
 import win32clipboard
+import settings
 
 import image_scan
 
@@ -113,6 +114,8 @@ class MainWidget(QWidget):
 		super().__init__()
 
 		self.OWidget = OptionWidget()
+		self.OWidget.image_scan_team1 = settings.Team1_ImageCrop
+		self.OWidget.image_scan_team2 = settings.Team2_ImageCrop
 
 		self.initUI()
 		self.show()
@@ -172,14 +175,14 @@ class MainWidget(QWidget):
 		vbox = QVBoxLayout()
 		self.TestMode_checkbox = QCheckBox("テストモード")
 		self.Tesseract_lineedit = QLineEdit()
-		self.Tesseract_lineedit.setText('C:\\Program Files\\Tesseract-OCR')
+		self.Tesseract_lineedit.setText(settings.Tesseract_path)
 		self.Tesseracttessdata_lineedit = QLineEdit()
-		self.Tesseracttessdata_lineedit.setText('C:\\Program Files\\Tesseract-OCR\\tessdata')
+		self.Tesseracttessdata_lineedit.setText(settings.Tesseract_tesspath)
 		
 		self.matchnum_slider = QSlider(Qt.Horizontal)
 		self.matchnum_slider.setMinimum(100)
 		self.matchnum_slider.setMinimum(0)
-		self.matchnum_slider.setValue(95)
+		self.matchnum_slider.setValue(settings.SearchMatchNumber)
 		
 		self.matchnum_label = QLabel("類似度判定  " + str(self.matchnum_slider.value()) + "%")
 		self.matchnum_slider.valueChanged.connect(self.matchnum_mouseMoveEvent)
@@ -325,9 +328,7 @@ class MainWidget(QWidget):
 
 	def optionbox(self):
 		self.OWidget.initUI()
-
 		self.OWidget.show()
-		print("test")
 
 
 
