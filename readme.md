@@ -1,3 +1,7 @@
+# BFV search
+BFVと呼ばれるゲームにおいて、サーバに参加しているユーザ名を取得するツールです。
+名前は、OCRで取得しています。
+
 
 # install 
 
@@ -5,7 +9,7 @@
 python vesion 3.8.6推奨
 
 ```
-winget install Python.Python
+winget install Python.Python -v 3.8.6
 py -m pip install --upgrade pip
 py -m pip install Image pyocr opencv-python numpy pywinauto PyQt5
 ```
@@ -30,3 +34,8 @@ https://github.com/UB-Mannheim/tesseract/wiki に行くと思うので、
  # License
 English : This software is released under the MIT License, see LICENSE.  
 日本語 : このソフトウェアは、MITライセンスの下でリリースされています。ライセンスを参照してください。  
+
+
+# 使い方
+
+
