@@ -67,15 +67,15 @@ pythonをインストールした段階で、GUI上でrun.pyをクリックす�
 ## ユーザ名別
 blacklist.csvにおいて、ユーザ別に改行を入れて保存すると、ツール内の「Black User」に表示されます。
 ``` 
-testuser1
-testuser2
+hoge1
+hoge2
 ```
 
 ## クラン名別
 blacklist_clan.csvにおいて、クラン別のヒットも行えます。ゲーム内表示では「[testclan1]testuser」とある場合、下記のblacklist_clan.csvにヒットするため、ツール内の「Black User」に表示されます。
 ```
-testclan1
-testclan2
+hogeclan1
+hogeclan2
 ```
 
  # License
