@@ -2,6 +2,13 @@
 BFVと呼ばれるゲームにおいて、サーバに参加しているユーザ名を取得するツールです。
 名前は、OCRで取得しています。
 
+想定使用対象者は、サーバの管理者です。
+BAN情報を保持しておきたいという要望に応えて、作ったツールになります。
+
+## 機能
++ サーバ参加者のユーザ名取得
++ ブラックリストとのユーザ名の比較・表示
+
 # install 
 
 ## python & pip
@@ -16,7 +23,6 @@ py -m pip install Image pyocr opencv-python numpy pywinauto PyQt5
 ## tesseract
 https://qiita.com/henjiganai/items/7a5e871f652b32b41a18
 を参考。
-
 
 https://tesseract-ocr.github.io/tessdoc/Home.html
 の一番したにwindow用exeへのリンクがある。
@@ -38,7 +44,39 @@ run.pyを起動させる。
 pythonをインストールした段階で、GUI上でrun.pyをクリックするだけで、使用できるようになっているはずです。
 
 ## 2.キャプチャ先ソフトを選択
-ソフト上部に「対象ソフト:」という項目があるので、「Battlefield V」
+ソフト上部に「対象ソフト:」という項目があるので、「Battlefield™ V」を選択する。
+
+## 3.参加ゲーム内のスコアボードを開き、スキャンする
+![image2](image2.png)
+
+この際、画面上にソフトが入らないようにしてください。
+キャプチャの際に、ソフトが映ってしまいます。
+
+## 4.出力を確認する
+![image3](image3.png)
+
+画像から取得できた内容を確認します。
+事前にblacklist.csvやblacklist_clan.csvに登録した名前と類似しているユーザが、「Black User」に表示されます。
+
+## 5.名前をコピーする
+
+表を選択、右クリックで「copy」というボタンが出てくるので、クリックすると、グリップボードに保存されます。
+
+# Black listを書き換える
+
+## ユーザ名別
+blacklist.csvにおいて、ユーザ別に改行を入れて保存すると、ツール内の「Black User」に表示されます。
+``` 
+testuser1
+testuser2
+```
+
+## クラン名別
+blacklist_clan.csvにおいて、クラン別のヒットも行えます。ゲーム内表示では「[testclan1]testuser」とある場合、下記のblacklist_clan.csvにヒットするため、ツール内の「Black User」に表示されます。
+```
+testclan1
+testclan2
+```
 
  # License
 English : This software is released under the MIT License, see LICENSE.  
