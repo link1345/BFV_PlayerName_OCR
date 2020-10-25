@@ -18,7 +18,7 @@ https://tesseract-ocr.github.io/tessdoc/Home.html
 https://github.com/UB-Mannheim/tesseract/wiki に行くと思うので、
 
 「tesseract-ocr-w64-setup-v5.0.0-alpha.20200328.exe (64 bit) resp.」とか
-言う文字が書いてあるので、クリックしてダウンロードする。
+という感じで書いてあるので、クリックしてダウンロードする。
 
 あとは、適当にインストール。
 途中でAdditional langage dataとか聞かれる。
