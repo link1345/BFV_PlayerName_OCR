@@ -10,11 +10,12 @@ import re
 from difflib import SequenceMatcher
 
 import asyncio
+import settings
 
 class image_scan():
 	def __init__(self):
-		self.path='C:\\Program Files\\Tesseract-OCR'
-		self.tessdata_path = 'C:\\Program Files\\Tesseract-OCR\\tessdata'
+		self.path=settings.Tesseract_path
+		self.tessdata_path = settings.Tesseract_tesspath
 
 		os.environ["PATH"] += os.pathsep + self.path
 		os.environ["TESSDATA_PREFIX"] = self.tessdata_path
@@ -138,9 +139,9 @@ class image_scan():
 		print(" **********************")
 
 
-		whitelist = np.loadtxt('whitelist.csv', ndmin=1, delimiter=',', dtype='str')
-		blacklist = np.loadtxt('blacklist.csv', ndmin=1, delimiter=',', dtype='str')
-		blacklist_clan = np.loadtxt('blacklist_clan.csv', ndmin=1, delimiter=',', dtype='str')
+		whitelist = np.loadtxt('whitelist.csv', ndmin=2, delimiter=',', dtype='str',encoding='utf8')
+		blacklist = np.loadtxt('blacklist.csv', ndmin=2, delimiter=',', dtype='str',encoding='utf8')
+		blacklist_clan = np.loadtxt('blacklist_clan.csv', ndmin=2, delimiter=',', dtype='str',encoding='utf8')
 
 		#print(len(whitelist))
 
@@ -173,25 +174,23 @@ class image_scan():
 						return out_hit
 
 				for b_clan in blacklist_clan :
-					out_hit = blacklist_put(b_clan, user)
-
-
+					out_hit = blacklist_put(b_clan[0], user)
 
 				for b_user in blacklist :
 					#print( b_user + "  " + user )
-					r =  SequenceMatcher(None, b_user, user).ratio()
+					r =  SequenceMatcher(None, b_user[0], user).ratio()
 					#print(r)
 					if r >= self.matchNum :
 						out_hit = True
 						break
 				
 				for w_user in whitelist :
-					r =  SequenceMatcher(None, w_user, user).ratio()
+					r =  SequenceMatcher(None, w_user[0], user).ratio()
 					if r >= self.matchNum :
 						safe_hit = True
 						break
 				
-				if out_hit == True :
+				if out_hit == True and safe_hit == False :
 					print('Black User:  ' + user )
 					black_hit_user.append( user )
 			
