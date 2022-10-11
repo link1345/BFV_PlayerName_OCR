@@ -1,12 +1,16 @@
 # 報告
 このツールの上位互換にあたるツールを作りました。
-こちらを使うのではなく、[「BFV_ServerOCR」])https://github.com/link1345/BFV_ServerOCR)を使ってください。
+
+こちらを使うのではなく、[「BFV_ServerOCR」](https://github.com/link1345/BFV_ServerOCR)を使ってください。
 
 # BFV search
 BFVと呼ばれるゲームにおいて、サーバに参加しているユーザ名を取得するツールです。
+
 名前は、OCRで取得しています。
 
+
 想定使用対象者は、サーバの管理者です。
+
 BAN情報を保持しておきたいという要望に応えて、作ったツールになります。
 
 ## 機能
